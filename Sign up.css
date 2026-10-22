@@ -1,0 +1,116 @@
+:root {
+    --bg-dark-grey: #1a1a1a;    /* Xám đen - Nền toàn trang */
+    --box-dark-grey: #2c2c2c;   /* Xám đen nhạt - Nền form */
+    --primary-yellow: #f1c40f;  /* Vàng - Chủ đạo */
+    --primary-brown: #8b4513;   /* Nâu - Viền, chi tiết phụ */
+    --text-light: #f5f5f5;      /* Chữ trắng ngà */
+}
+
+body {
+    background-color: var(--bg-dark-grey);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.auth-container {
+    background-color: var(--box-dark-grey);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    width: 380px;
+    border-top: 5px solid var(--primary-yellow);
+}
+
+/* Khu vực Tab */
+.auth-toggle {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--primary-brown);
+}
+
+.auth-toggle button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #999;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.auth-toggle button:hover {
+    color: var(--text-light);
+}
+
+.auth-toggle button.active {
+    color: var(--primary-yellow);
+    border-bottom: 3px solid var(--primary-yellow);
+    margin-bottom: -2px; /* Đè lên viền nâu ở dưới */
+}
+
+/* Các trường nhập liệu */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--primary-yellow);
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--primary-brown);
+    background-color: #1f1f1f;
+    color: var(--text-light);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-yellow);
+    box-shadow: 0 0 5px rgba(241, 196, 15, 0.3);
+}
+
+/* Nút Submit */
+.btn-primary {
+    background-color: var(--primary-yellow);
+    color: #111;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d4ac0d;
+}
