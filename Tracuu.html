@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tra cứu Bệnh & Hành trang Khám - CareRoute</title>
+  <link rel="stylesheet" href="tracuu.css">
+</head>
+<body>
+
+  <!-- Header CareRoute -->
+  <header class="navbar">
+    <div class="logo">Care<span>Route</span></div>
+    <nav class="nav-links">
+      <a href="index.html">Trang chủ</a>
+      <a href="tracuu.html" class="active">Tra cứu Hành trang</a>
+      <a href="signup.html">Tài khoản</a>
+    </nav>
+  </header>
+
+  <!-- Banner & Thanh Tìm kiếm -->
+  <section class="search-banner">
+    <h1>TRA CỨU BỆNH & CHUẨN BỊ HÀNH TRANG</h1>
+    <p>Chọn hoặc nhập triệu chứng/chuyên khoa để xem chi tiết những thứ cần mang theo trước khi đi khám.</p>
+    
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Nhập tên bệnh hoặc triệu chứng (ví dụ: đau dạ dày, sốt ở trẻ, khám tổng quát...)" autocomplete="off">
+      <button id="searchBtn">Tìm kiếm</button>
+    </div>
+
+    <!-- Nút gợi ý tìm nhanh -->
+    <div class="quick-tags">
+      <span>Gợi ý nhanh:</span>
+      <button class="tag-btn" data-disease="dada">Khám Dạ dày / Tiêu hóa</button>
+      <button class="tag-btn" data-disease="tongquat">Khám Tổng quát / Xét nghiệm</button>
+      <button class="tag-btn" data-disease="nhi">Nhi khoa (Trẻ em)</button>
+      <button class="tag-btn" data-disease="timmach">Tim mạch / Huyết áp</button>
+      <button class="tag-btn" data-disease="sanphukhoa">Sản / Phụ khoa</button>
+    </div>
+  </section>
+
+  <!-- Khu vực hiển thị kết quả -->
+  <main class="container">
+    <div id="resultContainer" class="result-card hidden">
+      <div class="disease-header">
+        <span class="dept-badge" id="diseaseDept">Khoa Tiêu Hóa</span>
+        <h2 id="diseaseTitle">Đau Dạ Dày & Nội Soi Tiêu Hóa</h2>
+        <p id="diseaseDesc" class="disease-desc">Hướng dẫn chuẩn bị hành trang và lưu ý trước khi đi khám nội soi tiêu hóa.</p>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Danh sách Checklist Hành Trang -->
+      <div class="checklist-grid">
+        
+        <!-- Nhóm 1: Giấy tờ & Hồ sơ -->
+        <div class="check-group">
+          <h3>📄 Giấy tờ & Hồ sơ y tế</h3>
+          <ul id="docsList" class="checklist-items">
+            <!-- Render JS -->
+          </ul>
+        </div>
+
+        <!-- Nhóm 2: Chuẩn bị & Vật dụng -->
+        <div class="check-group">
+          <h3>🎒 Chuẩn bị & Vật dụng cá nhân</h3>
+          <ul id="prepList" class="checklist-items">
+            <!-- Render JS -->
+          </ul>
+        </div>
+
+        <!-- Nhóm 3: Mẫu câu hỏi cho Bác sĩ -->
+        <div class="check-group full-width">
+          <h3>💬 Gợi ý câu hỏi nên hỏi Bác sĩ</h3>
+          <ul id="questionsList" class="checklist-items">
+            <!-- Render JS -->
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <button id="resetChecklistBtn" class="btn-outline">Đặt lại Checklist</button>
+        <button id="printBtn" class="btn-primary">🖨️ In / Tải danh sách này</button>
+      </div>
+    </div>
+
+    <!-- Thông báo khi không tìm thấy -->
+    <div id="notFoundCard" class="not-found hidden">
+      <h3>🔍 Không tìm thấy kết quả phù hợp</h3>
+      <p>Vui lòng thử từ khóa khác hoặc chọn từ danh sách gợi ý phía trên.</p>
+    </div>
+  </main>
+
+  <script src="tracuu.js"></script>
+</body>
+</html>

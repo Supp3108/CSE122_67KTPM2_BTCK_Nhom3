@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
 
     loginForm.addEventListener("submit", async (e) => {
+
+        
         e.preventDefault();
 
         // Đã sửa lại lấy đúng ID: login-username
@@ -91,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("currentUser", JSON.stringify(foundUser));
                 
                 // Chuyển hướng về trang chủ
-                window.location.href = "index.html"; 
+                window.location.href = "Tracuu.html"; 
             } else {
                 alert("Tài khoản/Email hoặc Mật khẩu không chính xác!");
             }
