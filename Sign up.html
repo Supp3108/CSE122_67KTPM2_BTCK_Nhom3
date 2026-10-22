@@ -16,12 +16,11 @@
     </div>
 
     <!-- Form Đăng nhập -->
-    <!-- Action trỏ về đường dẫn xử lý Java (ví dụ: /loginServlet) -->
-    <form id="login-form" action="/login" method="POST" class="auth-form">
+    <form id="login-form" class="auth-form">
         <h2>Chào mừng trở lại!</h2>
         <div class="input-group">
-            <label for="login-username">Tài khoản</label>
-            <input type="text" id="login-username" name="username" placeholder="Nhập tên tài khoản..." required>
+            <label for="login-username">Tài khoản hoặc Email</label>
+            <input type="text" id="login-username" name="username" placeholder="Nhập tên tài khoản hoặc email..." required>
         </div>
         <div class="input-group">
             <label for="login-password">Mật khẩu</label>
@@ -31,12 +30,11 @@
     </form>
 
     <!-- Form Đăng ký -->
-    <!-- Action trỏ về đường dẫn xử lý Java (ví dụ: /registerServlet) -->
-    <form id="register-form" action="/register" method="POST" class="auth-form" style="display: none;">
+    <form id="register-form" class="auth-form" style="display: none;">
         <h2>Tạo tài khoản mới</h2>
         <div class="input-group">
-            <label for="reg-username">Tài khoản</label>
-            <input type="text" id="reg-username" name="username" placeholder="Tên tài khoản..." required>
+            <label for="reg-fullname">Tài khoản</label>
+            <input type="text" id="reg-fullname" name="username" placeholder="Tên tài khoản..." required>
         </div>
         <div class="input-group">
             <label for="reg-email">Email</label>
