@@ -6,7 +6,7 @@
   <title>CareRoute - Hành trình tìm kiếm & Điều hướng y tế</title>
   <!-- FontAwesome for Search and User icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="code.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
   <header class="navbar">
     <div class="logo-container">
       <div class="logo-icon">
-        <img src="Anh/ảnh_logo-removebg-preview.png" alt="logo">
+        <img src="../Anh/ảnh_logo-removebg-preview.png" alt="logo">
      
       </div>
       <span class="logo-text">CARE ROUTE</span>
@@ -24,7 +24,7 @@
       <a href="#" class="nav-btn">Tin tức</a>
       <a href="#" class="nav-btn">Tra cứu</a>
       <a href="#" class="nav-btn">Hành trang</a>
-      <a href="#" class="user-avatar"><i class="fa-solid fa-user"></i></a>
+      <a href="#" id="login-btn" class="user-avatar"><i class="fa-solid fa-user"></i></a>
     </nav>
   </header>
 
@@ -144,6 +144,24 @@
       <p>Thư điện tử: caloroute@gmail.com</p>
     </div>
   </footer>
+
+  <!-- KHUNG POPUP ĐĂNG NHẬP -->
+<div id="login-modal" class="modal-overlay">
+    
+    <!-- Ép padding về 0, đổi nền trong suốt, và tăng chiều cao (height) cho vừa form -->
+    <div class="modal-content" style="padding: 0; width: 420px; height: 400px; background-color: transparent; box-shadow: none; border: none;">
+        
+        <!-- Đưa nút X ra góc ngoài cùng và đổi sang màu trắng cho dễ nhìn -->
+        <span class="close-btn" id="close-modal" style="z-index: 10; right: 100; top: 0px; color: #fff; font-size: 35px;">&times;</span>
+        
+        <!-- Nhúng thẻ iframe, thêm scrolling="no" để chặn thanh cuộn -->
+        <iframe src="Sign up.html" width="100%" height="100%" frameborder="0" scrolling="no" style="border-radius: 10px;"></iframe>
+        
+    </div>
+</div>
+
+<script src="Sign up.js"></script>
+<script src="index.js"></script>
 
 </body>
 </html>

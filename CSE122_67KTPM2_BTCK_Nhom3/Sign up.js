@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("currentUser", JSON.stringify(foundUser));
                 
                 // Chuyển hướng về trang chủ
-                window.location.href = "Tracuu.html"; 
+                window.parent.location.reload(); 
             } else {
                 alert("Tài khoản/Email hoặc Mật khẩu không chính xác!");
             }
