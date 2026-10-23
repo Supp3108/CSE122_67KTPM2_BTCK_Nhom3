@@ -111,3 +111,96 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Khung chứa ô tìm kiếm */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    /* Viền xám nhẹ */
+    border-radius: 8px;
+    /* Bo góc mềm mại */
+    padding: 6px 14px;
+    width: 320px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hiệu ứng khi người dùng nhấp vào ô nhập (Focus) */
+.search-box:focus-within {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* Ô nhập văn bản */
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 13.5px;
+    color: #1f2937;
+    background: transparent;
+}
+
+/* Kiểu chữ gợi ý (Placeholder) */
+.search-box input::placeholder {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* Nút chứa biểu tượng kính lúp */
+.search-box button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-left: 8px;
+}
+
+.search-box button:hover svg {
+    stroke: #0369a1;
+    /* Đổi màu xanh đậm hơn khi di chuột */
+}
+/* 1. Khung chứa các nút danh mục */
+.filter-tags {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;          /* Ép các nút luôn nằm trên 1 hàng ngang, không xuống dòng */
+    overflow-x: auto;           /* Cho phép kéo cuộn ngang khi màn hình nhỏ hơn danh sách */
+    white-space: nowrap;
+    padding-bottom: 6px;        /* Tạo khoảng đệm nhỏ bên dưới */
+    -webkit-overflow-scrolling: touch; /* Giúp trượt mượt trên điện thoại/tablet */
+}
+
+/* Ẩn thanh cuộn mặc định cho giao diện gọn gàng (tùy chọn) */
+.filter-tags::-webkit-scrollbar {
+    display: none;              /* Ẩn trên Chrome, Safari, Edge */
+}
+.filter-tags {
+    scrollbar-width: none;      /* Ẩn trên Firefox */
+}
+
+/* 2. Định dạng từng nút viên thuốc */
+.tag-btn {
+    border: none;
+    outline: none;
+    background-color: #eaf0f6; 
+    color: #1e3e62;            
+    padding: 7px 20px;         
+    border-radius: 9999px;     
+    font-size: 14.5px;         
+    font-weight: 500;
+    cursor: pointer;
+    flex-shrink: 0;             /* QUAN TRỌNG: Ngăn không cho các nút bị bóp méo/co lại khi màn hình hẹp */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Nút đang được chọn */
+.tag-btn.active {
+    background-color: #6b7280; 
+    color: #ffffff;            
+}
