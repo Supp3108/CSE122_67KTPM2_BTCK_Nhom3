@@ -4,20 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tra cứu Bệnh & Hành trang Khám - CareRoute</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <link rel="stylesheet" href="Tracuu.css">
 </head>
 <body>
 
-  <!-- Header CareRoute -->
-  <header class="navbar">
-    <div class="logo">Care<span>Route</span></div>
+  <!-- Header cơ bản của CareRoute -->
+     <header class="navbar">
+    <div class="logo-container">
+        <div class="logo-icon">
+            <img src="../Anh/ảnh_logo-removebg-preview.png" alt="logo">
+        </div>
+        <span class="logo-text">CARE ROUTE</span>
+    </div>
     <nav class="nav-links">
-      <a href="index.html">Trang chủ</a>
-      <a href="tracuu.html" class="active">Tra cứu Hành trang</a>
-      <a href="signup.html">Tài khoản</a>
+        <a href="index.html" class="nav-btn">Trang chủ</a>
+        <a href="tintuc.html" class="nav-btn">Tin tức</a>
+        <a href="Tracuu.html" class="nav-btn active">Tra cứu</a>
+        <a href="hanhtrang.html" class="nav-btn">Hành trang</a>
+        <a href="#" id="login-btn" class="user-avatar"><i class="fa-solid fa-user"></i></a>
     </nav>
-  </header>
-
+</header>
   <!-- Banner & Thanh Tìm kiếm -->
   <section class="search-banner">
     <h1>TRA CỨU BỆNH & CHUẨN BỊ HÀNH TRANG</h1>
@@ -94,5 +102,6 @@
   </main>
 
   <script src="tracuu.js"></script>
+  <script src="AccountCheck.js"></script>
 </body>
 </html>

@@ -1,0 +1,278 @@
+/* RESET BẢN MỚI */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #2c2c2c; /* Tone màu tối đồng bộ với Header */
+}
+
+/* --- THANH MENU (NAVBAR) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2b2b2b;
+    padding: 15px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon img {
+    width: 45px;
+    height: 45px;
+}
+
+.logo-text {
+    color: #f1c40f; /* Màu vàng Care Route */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-btn {
+    background-color: #444; /* Dạng viên thuốc xám */
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background-color: #f1c40f; /* Khi chọn sáng màu vàng */
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.user-avatar {
+    color: #ccc;
+    font-size: 22px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+/* BANNER HERO */
+.hero-section {
+    background-color: #f2a900;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-section h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* CÁC SECTION CHI TIẾT */
+.detail-section {
+    padding: 60px 20px;
+}
+
+.bg-light { background-color: #f9f9f9; }
+.bg-white { background-color: #ffffff; }
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.large-img{
+    max-width: 600px; /* Thu nhỏ lại so với 800px ban đầu */
+    max-height: 400px; /* Ép chiều cao tối đa để ảnh không bị lấn chiếm màn hình */
+    width: 100%;
+    object-fit: contain; /* Giúp ảnh tự co giãn vừa vặn khung mà không bị cắt gọt hay méo tỉ lệ */
+    margin: 0 auto; /* Đảm bảo ảnh luôn nằm chính giữa */
+}
+.text-center { text-align: center; }
+.mt-4 { margin-top: 30px; }
+.sub-heading { color: #666; margin-bottom: 40px; font-size: 18px; }
+
+/* BỐ CỤC 2 CỘT (CHỮ LÀM ẢNH) */
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Đổi chỗ Cột ảnh và Cột chữ xen kẽ cho đẹp */
+.section-grid.reverse .content-block {
+    order: 2;
+}
+.section-grid.reverse .image-block {
+    order: 1;
+}
+
+.content-block h2 {
+    color: #f2a900;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card ul li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+/* Dấu tick ảo cho danh sách */
+.card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #f2a900;
+    font-weight: bold;
+}
+
+/* STYLE HÌNH ẢNH */
+.image-block {
+    text-align: center;
+}
+
+.img-fluid {
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background-color: #ddd; /* Màu nền chờ khi chưa có ảnh */
+}
+
+.large-img {
+    max-width: 800px;
+    height: auto;
+}
+
+.img-caption {
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* QUY TRÌNH (DẠNG THẺ GRID) */
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.step-card {
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid #f2a900;
+    position: relative;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: #f2a900;
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+}
+
+.step-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2c2c2c;
+}
+
+.step-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* RESPONSIVE CHO ĐIỆN THOẠI */
+@media (max-width: 768px) {
+    .section-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-grid.reverse .content-block { order: 1; }
+    .section-grid.reverse .image-block { order: 2; }
+    
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+}
+/* FOOTER */
+.footer {
+  background-color: #37332e;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffd000;
+  width: 100%;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon.large {
+  width: 45px;
+  height: 45px;
+  font-size: 26px;
+}
+
+.footer-logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.footer-right {
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.footer-right .highlight {
+  color: #ff3300;
+  font-weight: bold;
+}
+

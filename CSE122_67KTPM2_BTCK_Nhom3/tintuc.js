@@ -1,1 +1,1 @@
-
+// tintuc.js

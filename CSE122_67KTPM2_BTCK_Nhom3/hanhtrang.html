@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hành Trang Đi Khám - CareRoute</title>
+    <!-- Nhớ dùng đường dẫn tương đối để nhóm pull về không bị lỗi -->
+    <link rel="stylesheet" href="hanhtrang.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header cơ bản của CareRoute -->
+     <header class="navbar">
+    <div class="logo-container">
+        <div class="logo-icon">
+            <img src="../Anh/ảnh_logo-removebg-preview.png" alt="logo">
+        </div>
+        <span class="logo-text">CARE ROUTE</span>
+    </div>
+    <nav class="nav-links">
+        <a href="index.html" class="nav-btn">Trang chủ</a>
+        <a href="tintuc.html" class="nav-btn">Tin tức</a>
+        <a href="Tracuu.html" class="nav-btn">Tra cứu</a>
+        <a href="hanhtrang.html" class="nav-btn active">Hành trang</a>
+        <a href="#" id="login-btn" class="user-avatar"><i class="fa-solid fa-user"></i></a>
+    </nav>
+</header>
+    <!-- Banner Trang Chi Tiết -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>HÀNH TRANG ĐI KHÁM BỆNH</h1>
+            <p>Chuẩn bị kỹ lưỡng - Thăm khám an tâm, tiết kiệm thời gian và chi phí.</p>
+        </div>
+    </section>
+
+    <!-- PHẦN 1: ĐỒ DÙNG CẦN THIẾT -->
+    <section class="detail-section bg-light">
+        <div class="container section-grid">
+            <div class="content-block">
+                <h2>1. Các đồ dùng mang theo cần thiết</h2>
+                <div class="card">
+                    <ul>
+                        <li><strong>Giấy tờ:</strong> Căn cước công dân (CCCD), Thẻ BHYT bản cứng hoặc ứng dụng VSSID, Giấy chuyển tuyến/Giấy hẹn khám lại (nếu có).</li>
+                        <li><strong>Hồ sơ y tế cũ:</strong> Sổ khám bệnh, đơn thuốc đang sử dụng, các kết quả xét nghiệm máu, phim chụp X-Quang, MRI, CT gần nhất.</li>
+                        <li><strong>Tài chính:</strong> Chuẩn bị tiền mặt (mệnh giá nhỏ để gửi xe, mua sổ khám) và thẻ ngân hàng/Mã QR để thanh toán viện phí nhanh chóng.</li>
+                        <li><strong>Vật dụng cá nhân:</strong> Điện thoại sạc đầy pin, khẩu trang dự phòng, nước rửa tay khô, chai nước uống cá nhân. Nên mặc trang phục thoải mái, áo ngắn tay hoặc dễ xắn tay áo.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="image-block">
+                <!-- GHI CHÚ HÌNH ẢNH 1: Tìm 1 bức ảnh chụp các loại giấy tờ, thẻ BHYT hoặc 1 chiếc balo nhỏ chứa đồ đi khám bệnh -->
+                <img src="../anhhtml/giayto.jpg" alt="Giấy tờ cần thiết" class="img-fluid">
+                <p class="img-caption">Ảnh minh họa: Chuẩn bị đầy đủ giấy tờ tùy thân và BHYT</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHẦN 2: LƯU Ý QUAN TRỌNG -->
+    <section class="detail-section bg-white">
+        <div class="container section-grid reverse">
+            <div class="content-block">
+                <h2>2. Lưu ý quan trọng trước khi đi khám</h2>
+                <div class="card">
+                    <ul>
+                        <li><strong>Chuẩn bị trước ở nhà:</strong> Nhịn ăn sáng ít nhất 6-8 tiếng, chỉ uống nước lọc nếu bạn được chỉ định xét nghiệm máu, nội soi dạ dày hoặc siêu âm ổ bụng. Ghi ra giấy các triệu chứng bệnh và câu hỏi muốn hỏi bác sĩ.</li>
+                        <li><strong>Trang phục:</strong> Mặc quần áo thoải mái, rộng rãi. Nữ giới không nên mặc váy liền thân để thuận tiện khi siêu âm, đo điện tim. Không đeo nhiều đồ trang sức có giá trị.</li>
+                        <li><strong>An toàn y tế:</strong> Luôn đeo khẩu trang đúng cách khi vào khuôn viên bệnh viện. Thường xuyên sát khuẩn tay sau khi chạm vào tay nắm cửa, ghế ngồi chờ hoặc thang máy.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="image-block">
+                <!-- GHI CHÚ HÌNH ẢNH 2: Tìm 1 bức ảnh người bệnh đang được bác sĩ đo huyết áp hoặc hình ảnh dặn dò nhịn ăn sáng -->
+                <img src="../anhhtml/luuytruockhidikham.jpg" alt="Lưu ý khi đi khám" class="img-fluid">
+                <p class="img-caption">Ảnh minh họa: Nhịn ăn sáng nếu cần thực hiện xét nghiệm</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHẦN 3: QUY TRÌNH THĂM KHÁM -->
+    <section class="detail-section bg-light">
+        <div class="container">
+            <h2 class="text-center">3. Quy trình thăm khám chuẩn</h2>
+            <p class="text-center sub-heading">Nắm rõ 5 bước cơ bản để không bị bỡ ngỡ khi đến bệnh viện.</p>
+            
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Đăng ký khám</h3>
+                    <p>Lấy số thứ tự, nộp CCCD/BHYT tại quầy tiếp đón. Đóng tạm ứng phí khám ban đầu và nhận sổ khám kèm số phòng.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Khám lâm sàng</h3>
+                    <p>Điều dưỡng đo sinh hiệu (huyết áp, chiều cao, cân nặng). Gặp bác sĩ chuyên khoa để trình bày triệu chứng và nhận chỉ định cận lâm sàng.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Xét nghiệm & Chụp chiếu</h3>
+                    <p>Đóng phí các chỉ định cận lâm sàng. Di chuyển đến các phòng xét nghiệm máu, siêu âm, X-Quang, MRI... và chờ lấy kết quả.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Đọc kết quả</h3>
+                    <p>Cầm toàn bộ kết quả quay lại phòng khám ban đầu. Bác sĩ giải thích tình trạng bệnh, chẩn đoán cuối cùng và kê đơn thuốc hoặc tư vấn nhập viện.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Nhận thuốc & Rút hồ sơ</h3>
+                    <p>Đóng dấu BHYT (nếu có), thanh toán nốt viện phí phát sinh. Nhận thuốc tại quầy dược bệnh viện, kiểm tra kỹ hướng dẫn sử dụng và nhận lại giấy tờ tùy thân.</p>
+                </div>
+            </div>
+
+            <div class="process-image text-center mt-4">
+                 <!-- GHI CHÚ HÌNH ẢNH 3: Tìm 1 bức ảnh dạng sơ đồ quy trình (flowchart) hoặc ảnh toàn cảnh sảnh chờ bệnh viện -->
+                 <img src="../anhhtml/quytrinhkhambenh.png" alt="Sơ đồ quy trình khám bệnh" class="img-fluid large-img">
+            </div>
+        </div>
+    </section>
+            <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="logo-icon large">
+        <i class="fa-solid fa-location-crosshairs"></i>
+      </div>
+      <span class="footer-logo-text">CARE ROUTE</span>
+    </div>
+    <div class="footer-right">
+      <p>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+      <p>Tổng đài hỗ trợ: <span class="highlight">1900.6767</span></p>
+      <p>Thư điện tử: caloroute@gmail.com</p>
+    </div>
+  </footer>
+        
+    
+
+    <script src="AccountCheck.js"></script>
+</body>
+</html>

@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (loginBtn) {
             loginBtn.classList.remove("user-avatar");
+            loginBtn.id = "logged-in-user";
+            loginBtn.href = "#";
+            loginBtn.style.textDecoration = "none";
+            loginBtn.style.display = "flex";
+            loginBtn.style.alignItems = "center";
+
             // Đổi cái icon Avatar thành tên người dùng (lấy từ trường fullname)
             loginBtn.innerHTML = `
                 <span style="color: #e6a030; font-weight: bold; font-size: 15px; margin-right: 10px;">
@@ -22,24 +28,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 </span>
                 <i id="logout-btn" class="fa-solid fa-right-from-bracket" title="Đăng xuất" style="color: red; cursor: pointer; font-size: 18px;"></i>
             `;
-            
-            // Xóa id login-btn để khi bấm vào tên sẽ KHÔNG bị hiện bảng popup nữa
-            loginBtn.id = "logged-in-user";
 
             // Bắt sự kiện khi bấm vào nút Đăng xuất (icon màu đỏ)
             const logoutBtn = document.getElementById('logout-btn');
-            logoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Xóa dữ liệu tài khoản khỏi bộ nhớ
-                localStorage.removeItem("currentUser");
-                // Tải lại trang (giao diện sẽ tự động quay về hình Avatar gốc)
-                window.location.reload(); 
-            });
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Xóa dữ liệu tài khoản khỏi bộ nhớ
+                    localStorage.removeItem("currentUser");
+                    // Tải lại trang (giao diện sẽ tự động quay về hình Avatar gốc)
+                    window.location.reload(); 
+                });
+            }
         }
 
     } else {
         // --- TRƯỜNG HỢP CHƯA ĐĂNG NHẬP (Làm như cũ) ---
-        if (loginBtn) {
+        if (loginBtn && loginModal) {
             loginBtn.addEventListener('click', function(event) {
                 event.preventDefault(); 
                 loginModal.style.display = 'flex'; // Hiện popup
@@ -50,16 +56,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // ==========================================
     // 3. XỬ LÝ ĐÓNG POPUP
     // ==========================================
-    if (closeModal) {
+    if (closeModal && loginModal) {
         closeModal.addEventListener('click', function() {
             loginModal.style.display = 'none';
         });
     }
 
     // Click ra vùng đen mờ bên ngoài tự đóng
-    window.addEventListener('click', function(event) {
-        if (event.target === loginModal) {
-            loginModal.style.display = 'none';
-        }
-    });
+    if (loginModal) {
+        window.addEventListener('click', function(event) {
+            if (event.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+    }
 });

@@ -11,95 +11,99 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // LOGIC CHUYỂN TAB
     // ==========================================
+    if (loginTab && registerTab && loginForm && registerForm) {
+        loginTab.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginTab.classList.add("active");
+            registerTab.classList.remove("active");
+            
+            loginForm.style.display = "flex";
+            registerForm.style.display = "none";
+        });
 
-    loginTab.addEventListener("click", (e) => {
-        e.preventDefault();
-        loginTab.classList.add("active");
-        registerTab.classList.remove("active");
-        
-        loginForm.style.display = "flex";
-        registerForm.style.display = "none";
-    });
-
-    registerTab.addEventListener("click", (e) => {
-        e.preventDefault();
-        registerTab.classList.add("active");
-        loginTab.classList.remove("active");
-        
-        registerForm.style.display = "flex";
-        loginForm.style.display = "none";
-    });
+        registerTab.addEventListener("click", (e) => {
+            e.preventDefault();
+            registerTab.classList.add("active");
+            loginTab.classList.remove("active");
+            
+            registerForm.style.display = "flex";
+            loginForm.style.display = "none";
+        });
+    }
 
     // ==========================================
     // LOGIC XỬ LÝ ĐĂNG KÝ VỚI MOCKAPI
     // ==========================================
+    if (registerForm) {
+        registerForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-    registerForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
+            const fullname = document.getElementById("reg-fullname").value;
+            const email = document.getElementById("reg-email").value;
+            const password = document.getElementById("reg-password").value;
 
-        const fullname = document.getElementById("reg-fullname").value;
-        const email = document.getElementById("reg-email").value;
-        const password = document.getElementById("reg-password").value;
+            // Tạo object đẩy lên MockAPI
+            const newUser = { fullname, email, password };
 
-        // Tạo object đẩy lên MockAPI
-        const newUser = { fullname, email, password };
+            try {
+                const res = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(newUser)
+                });
 
-        try {
-            const res = await fetch(API_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newUser)
-            });
-
-            if (res.ok) {
-                alert("Đăng ký tài khoản thành công! Mời bạn đăng nhập.");
-                registerForm.reset(); // Làm sạch ô nhập
-                loginTab.click();     // Chuyển sang Tab Đăng Nhập
-            } else {
-                alert("Đăng ký thất bại, vui lòng kiểm tra lại cấu hình MockAPI!");
+                if (res.ok) {
+                    alert("Đăng ký tài khoản thành công! Mời bạn đăng nhập.");
+                    registerForm.reset(); // Làm sạch ô nhập
+                    loginTab.click();     // Chuyển sang Tab Đăng Nhập
+                } else {
+                    alert("Đăng ký thất bại, vui lòng kiểm tra lại cấu hình MockAPI!");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Không thể kết nối đến máy chủ API!");
             }
-        } catch (err) {
-            console.error(err);
-            alert("Không thể kết nối đến máy chủ API!");
-        }
-    });
+        });
+    }
 
     // ==========================================
     // LOGIC XỬ LÝ ĐĂNG NHẬP VỚI MOCKAPI
     // ==========================================
+    if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-    loginForm.addEventListener("submit", async (e) => {
+            const userInput = document.getElementById("login-username").value;
+            const passwordInput = document.getElementById("login-password").value;
 
-        
-        e.preventDefault();
+            try {
+                const res = await fetch(API_URL);
+                const users = await res.json();
 
-        // Đã sửa lại lấy đúng ID: login-username
-        const userInput = document.getElementById("login-username").value;
-        const passwordInput = document.getElementById("login-password").value;
+                // Cho phép nhập Tên tài khoản (fullname) HOẶC Email để đăng nhập
+                const foundUser = users.find(
+                    (u) => (u.fullname === userInput || u.email === userInput) && u.password === passwordInput
+                );
 
-        try {
-            const res = await fetch(API_URL);
-            const users = await res.json();
-
-            // Cho phép nhập Tên tài khoản (fullname) HOẶC Email để đăng nhập
-            const foundUser = users.find(
-                (u) => (u.fullname === userInput || u.email === userInput) && u.password === passwordInput
-            );
-
-            if (foundUser) {
-                alert(`Đăng nhập thành công! Chào mừng ${foundUser.fullname}`);
-                
-                // Lưu thông tin user vào bộ nhớ trình duyệt
-                localStorage.setItem("currentUser", JSON.stringify(foundUser));
-                
-                // Chuyển hướng về trang chủ
-                window.parent.location.reload(); 
-            } else {
-                alert("Tài khoản/Email hoặc Mật khẩu không chính xác!");
+                if (foundUser) {
+                    alert(`Đăng nhập thành công! Chào mừng ${foundUser.fullname}`);
+                    
+                    // Lưu thông tin user vào bộ nhớ trình duyệt
+                    localStorage.setItem("currentUser", JSON.stringify(foundUser));
+                    
+                    // Chuyển hướng hoặc reload
+                    if (window.parent && window.parent !== window) {
+                        window.parent.location.reload(); 
+                    } else {
+                        window.location.href = "index.html";
+                    }
+                } else {
+                    alert("Tài khoản/Email hoặc Mật khẩu không chính xác!");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Lỗi kết nối máy chủ!");
             }
-        } catch (err) {
-            console.error(err);
-            alert("Lỗi kết nối máy chủ!");
-        }
-    });
+        });
+    }
 });
