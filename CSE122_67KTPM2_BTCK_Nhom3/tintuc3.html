@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cần mang gì khi khám lần đầu? - CARE ROUTE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="tintuc2.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <div class="logo-icon"></div>
-            CARE ROUTE
+    <!-- THANH MENU TRÊN CÙNG -->
+    <header class="navbar">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <img src="../Anh/ảnh_logo-removebg-preview.png" alt="logo">
+            </div>
+            <span class="logo-text">CARE ROUTE</span>
         </div>
-        <div class="nav-links">
-            <a href="#">Trang chủ</a>
-            <a href="#" class="active">Tin tức</a>
-            <a href="#">Tra cứu</a>
-            <a href="#">Hành trang</a>
-        </div>
-        <div class="user-info">
-            <span class="greeting">Xin chào, 123</span>
-            <a href="#" class="logout">➜</a>
-        </div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-btn">Trang chủ</a>
+            <a href="tintuc.html" class="nav-btn active">Tin tức</a>
+            <a href="Tracuu.html" class="nav-btn">Tra cứu</a>
+            <a href="hanhtrang.html" class="nav-btn">Hành trang</a>
+            <a href="#" id="login-btn" class="user-avatar"><i class="fa-solid fa-user"></i></a>
+        </nav>
     </header>
-
     <div class="container">
         <!-- Đổi tên file ảnh của bài này vào url bên dưới -->
-        <div class="hero-banner" style="background-image: url('../anhhtml/kham_lan_dau.jpg');"></div>
+        <div class="hero-banner b" ></div>
         
         <div class="article-content">
             <div class="breadcrumb">
@@ -52,5 +52,19 @@
             </div>
         </div>
     </div>
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="logo-icon large">
+      </div>
+      <span class="footer-logo-text">CARE ROUTE</span>
+    </div>
+    <div class="footer-right">
+      <p>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+      <p>Tổng đài hỗ trợ: <span class="highlight">1900.6767</span></p>
+      <p>Thư điện tử: caloroute@gmail.com</p>
+    </div>
+  </footer>
+  <script src="AccountCheck.js"></script>
 </body>
 </html>

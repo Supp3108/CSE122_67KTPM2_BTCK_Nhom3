@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Những điều cần biết về tiểu đường? - CARE ROUTE</title>
     <link rel="stylesheet" href="tintuc2.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            <div class="logo-icon"></div>
-            CARE ROUTE
+<!-- THANH MENU TRÊN CÙNG -->
+    <header class="navbar">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <img src="../Anh/ảnh_logo-removebg-preview.png" alt="logo">
+            </div>
+            <span class="logo-text">CARE ROUTE</span>
         </div>
-        <div class="nav-links">
-            <a href="index.html">Trang chủ</a>
-            <a href="#" class="active">Tin tức</a>
-            <a href="Tracuu.html">Tra cứu</a>
-            <a href="hanhtrang.html">Hành trang</a>
-        </div>
-        <div class="user-info">
-            <span class="greeting">Xin chào, 123</span>
-            <a href="#" class="logout">➜</a>
-        </div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-btn">Trang chủ</a>
+            <a href="tintuc.html" class="nav-btn active">Tin tức</a>
+            <a href="Tracuu.html" class="nav-btn">Tra cứu</a>
+            <a href="hanhtrang.html" class="nav-btn">Hành trang</a>
+            <a href="#" id="login-btn" class="user-avatar"><i class="fa-solid fa-user"></i></a>
+        </nav>
     </header>
 
     <div class="container">
@@ -70,6 +70,7 @@
       <p>Thư điện tử: caloroute@gmail.com</p>
     </div>
   </footer>
+  <script src="AccountCheck.js"></script>
 
 </body>
 </html>

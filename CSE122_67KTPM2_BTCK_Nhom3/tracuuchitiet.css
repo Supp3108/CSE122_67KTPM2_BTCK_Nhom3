@@ -404,40 +404,52 @@
   background: #d4ac0d;
 }
 
-/* Footer đồng bộ */
+/* FOOTER */
 .footer {
-  background-color: #2b2b2b;
-  color: #ccc;
-  padding: 25px 40px;
+  background-color: #37332e;
+  padding: 25px 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 50px;
-  border-top: 2px solid #333;
+  justify-content: space-between;
+  color: #ffd000;
 }
 
 .footer-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+}
+
+.logo-icon.large {
+  background-image: url(../Anh/ảnh_logo-removebg-preview.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 45px;
+  height: 45px;
+  font-size: 26px;
+  display: inline-block;
 }
 
 .footer-logo-text {
-  color: #f1c40f;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
-.footer-right p {
-  margin: 4px 0;
-  font-size: 13.5px;
+.footer-right {
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+  left: 30%;
+  right: 20%;
+  padding-left: 20px;
 }
 
 .footer-right .highlight {
   color: #ff3300;
   font-weight: bold;
 }
-
 /* Print Styles */
 @media print {
   .navbar, .breadcrumb-container, .quick-switch-section, .checklist-actions-top, .bottom-nav-bar, .footer {
