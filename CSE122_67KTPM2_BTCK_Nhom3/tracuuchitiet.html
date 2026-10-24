@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Tiết Hành Trang Khám Bệnh - CareRoute</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Tracuu.css">
+  <link rel="stylesheet" href="tracuuchitiet.css">
+</head>
+<body>
+
+  <!-- THANH MENU TRÊN CÙNG (NAVBAR) -->
+  <header class="navbar">
+    <div class="logo-container">
+      <div class="logo-icon">
+        <img src="../Anh/ảnh_logo-removebg-preview.png" alt="logo">
+      </div>
+      <span class="logo-text">CARE ROUTE</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-btn">Trang chủ</a>
+      <a href="tintuc.html" class="nav-btn">Tin tức</a>
+      <a href="Tracuu.html" class="nav-btn active">Tra cứu</a>
+      <a href="hanhtrang.html" class="nav-btn">Hành trang</a>
+      <a href="#" id="login-btn" class="user-avatar"><i class="fa-solid fa-user"></i></a>
+    </nav>
+  </header>
+
+  <!-- ĐƯỜNG DẪN TRANG (BREADCRUMB) -->
+  <div class="breadcrumb-container">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a>
+        <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+        <a href="Tracuu.html">Tra cứu</a>
+        <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+        <span id="breadcrumbCurrent" class="current">Chi tiết bệnh</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- NÚT QUAY LẠI & THANH CHUYỂN NHANH BỆNH -->
+  <section class="quick-switch-section">
+    <div class="container">
+      <div class="switch-bar">
+        <a href="Tracuu.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i> Quay lại tìm kiếm
+        </a>
+        <div class="switch-tags">
+          <span class="switch-label">Xem nhanh 5 bệnh demo:</span>
+          <button class="switch-btn" data-id="dada">Dạ dày / Tiêu hóa</button>
+          <button class="switch-btn" data-id="tongquat">Khám tổng quát</button>
+          <button class="switch-btn" data-id="nhi">Nhi khoa (Trẻ em)</button>
+          <button class="switch-btn" data-id="timmach">Tim mạch</button>
+          <button class="switch-btn" data-id="sanphukhoa">Sản / Phụ khoa</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NỘI DUNG CHÍNH CHI TIẾT BỆNH -->
+  <main class="container detail-main">
+
+    <!-- 1. HEADER BANNER THÔNG TIN BỆNH -->
+    <section class="disease-banner-card">
+      <div class="banner-top">
+        <span class="dept-badge" id="diseaseDept">Khoa Tiêu Hóa</span>
+        <span class="demo-badge"><i class="fa-solid fa-circle-check"></i> Cẩm nang chuẩn bị y tế</span>
+      </div>
+      <h1 id="diseaseTitle" class="disease-title">Tên bệnh đang cập nhật...</h1>
+      <p id="diseaseDesc" class="disease-lead">Mô tả thông tin chi tiết về bệnh...</p>
+    </section>
+
+    <!-- 2. DẤU HIỆU & TRIỆU CHỨNG -->
+    <section class="detail-block">
+      <h2 class="block-title">
+        <i class="fa-solid fa-stethoscope"></i> 1. Dấu hiệu nhận biết & Triệu chứng thường gặp
+      </h2>
+      <div class="symptoms-box">
+        <ul id="symptomsList" class="symptoms-list">
+          <!-- Render từ JS -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. LƯU Ý QUAN TRỌNG TRƯỚC KHI ĐI KHÁM -->
+    <section class="detail-block">
+      <h2 class="block-title">
+        <i class="fa-solid fa-triangle-exclamation"></i> 2. Các lưu ý quan trọng trước khi đi khám
+      </h2>
+      <div id="notesGrid" class="notes-grid">
+        <!-- Render từ JS -->
+      </div>
+    </section>
+
+    <!-- 4. HÀNH TRANG CẦN MANG THEO (CHECKLIST TƯƠNG TÁC) -->
+    <section class="detail-block checklist-section">
+      <div class="checklist-header">
+        <div>
+          <h2 class="block-title">
+            <i class="fa-solid fa-suitcase-medical"></i> 3. Hành trang cần mang theo (Checklist)
+          </h2>
+          <p class="checklist-subtitle">Nhấn tick vào các mục bên dưới để đánh dấu những thứ bạn đã chuẩn bị:</p>
+        </div>
+        <div class="checklist-actions-top">
+          <button id="resetChecklistBtn" class="btn-outline">
+            <i class="fa-solid fa-rotate-left"></i> Đặt lại
+          </button>
+          <button id="printBtn" class="btn-primary">
+            <i class="fa-solid fa-print"></i> In / Tải danh sách
+          </button>
+        </div>
+      </div>
+
+      <div class="checklist-grid">
+        <!-- Nhóm 1: Giấy tờ & Hồ sơ -->
+        <div class="check-group">
+          <h3>
+            <i class="fa-solid fa-id-card"></i> Giấy tờ & Hồ sơ y tế
+          </h3>
+          <ul id="docsList" class="checklist-items">
+            <!-- Render từ JS -->
+          </ul>
+        </div>
+
+        <!-- Nhóm 2: Chuẩn bị & Vật dụng cá nhân -->
+        <div class="check-group">
+          <h3>
+            <i class="fa-solid fa-bag-shopping"></i> Chuẩn bị & Vật dụng cá nhân
+          </h3>
+          <ul id="prepList" class="checklist-items">
+            <!-- Render từ JS -->
+          </ul>
+        </div>
+
+        <!-- Nhóm 3: Mẫu câu hỏi nên hỏi Bác sĩ -->
+        <div class="check-group full-width">
+          <h3>
+            <i class="fa-solid fa-comments"></i> Gợi ý câu hỏi nên hỏi Bác sĩ khi vào khám
+          </h3>
+          <ul id="questionsList" class="checklist-items">
+            <!-- Render từ JS -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- NÚT ĐIỀU HƯỚNG CUỐI TRANG -->
+    <div class="bottom-nav-bar">
+      <a href="Tracuu.html" class="btn-back-large">
+        <i class="fa-solid fa-magnifying-glass"></i> Tra cứu bệnh khác
+      </a>
+      <a href="hanhtrang.html" class="btn-primary-large">
+        <i class="fa-solid fa-book-medical"></i> Xem cẩm nang hành trang chung
+      </a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER ĐỒNG BỘ -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="logo-icon large">
+        <i class="fa-solid fa-location-crosshairs"></i>
+      </div>
+      <span class="footer-logo-text">CARE ROUTE</span>
+    </div>
+    <div class="footer-right">
+      <p>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+      <p>Tổng đài hỗ trợ: <span class="highlight">1900.6767</span></p>
+      <p>Thư điện tử: caloroute@gmail.com</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script src="tracuuchitiet.js"></script>
+  <script src="AccountCheck.js"></script>
+</body>
+</html>

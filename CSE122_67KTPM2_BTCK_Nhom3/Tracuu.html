@@ -4,66 +4,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tra cứu Bệnh & Hành trang Khám - CareRoute</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="Tracuu.css">
 </head>
 <body>
 
   <!-- Header cơ bản của CareRoute -->
-     <header class="navbar">
+  <header class="navbar">
     <div class="logo-container">
-        <div class="logo-icon">
-            <img src="../Anh/ảnh_logo-removebg-preview.png" alt="logo">
-        </div>
-        <span class="logo-text">CARE ROUTE</span>
+      <div class="logo-icon">
+        <img src="../Anh/ảnh_logo-removebg-preview.png" alt="logo">
+      </div>
+      <span class="logo-text">CARE ROUTE</span>
     </div>
     <nav class="nav-links">
-        <a href="index.html" class="nav-btn">Trang chủ</a>
-        <a href="tintuc.html" class="nav-btn">Tin tức</a>
-        <a href="Tracuu.html" class="nav-btn active">Tra cứu</a>
-        <a href="hanhtrang.html" class="nav-btn">Hành trang</a>
-        <a href="#" id="login-btn" class="user-avatar"><i class="fa-solid fa-user"></i></a>
+      <a href="index.html" class="nav-btn">Trang chủ</a>
+      <a href="tintuc.html" class="nav-btn">Tin tức</a>
+      <a href="Tracuu.html" class="nav-btn active">Tra cứu</a>
+      <a href="hanhtrang.html" class="nav-btn">Hành trang</a>
+      <a href="#" id="login-btn" class="user-avatar"><i class="fa-solid fa-user"></i></a>
     </nav>
-</header>
+  </header>
+
   <!-- Banner & Thanh Tìm kiếm -->
   <section class="search-banner">
     <h1>TRA CỨU BỆNH & CHUẨN BỊ HÀNH TRANG</h1>
-    <p>Chọn hoặc nhập triệu chứng/chuyên khoa để xem chi tiết những thứ cần mang theo trước khi đi khám.</p>
+    <p>Nhập tên bệnh/triệu chứng hoặc chọn chuyên khoa bên dưới để xem chi tiết lưu ý và danh sách hành trang cần mang theo.</p>
     
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Nhập tên bệnh hoặc triệu chứng (ví dụ: đau dạ dày, sốt ở trẻ, khám tổng quát...)" autocomplete="off">
-      <button id="searchBtn">Tìm kiếm</button>
-    </div>
+    <form class="search-box" id="searchForm" onsubmit="executeSearch(); return false;">
+      <div class="search-input-wrap">
+        <input type="text" id="searchInput" placeholder="Nhập tên bệnh hoặc triệu chứng (ví dụ: đau dạ dày, sốt ở trẻ, khám tổng quát, tim mạch...)" autocomplete="off">
+        <!-- Lịch sử tìm kiếm: chỉ hiện khi đã đăng nhập -->
+        <div id="searchHistory" class="search-history hidden">
+          <div class="search-history-header">
+            <span>Lịch sử tìm kiếm</span>
+            <button type="button" id="clearHistoryBtn">Xóa tất cả</button>
+          </div>
+          <ul id="searchHistoryList" class="search-history-list"></ul>
+        </div>
+      </div>
+      <button type="button" id="searchBtn" onclick="executeSearch();"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+    </form>
 
     <!-- Nút gợi ý tìm nhanh -->
     <div class="quick-tags">
       <span>Gợi ý nhanh:</span>
-      <button class="tag-btn" data-disease="dada">Khám Dạ dày / Tiêu hóa</button>
-      <button class="tag-btn" data-disease="tongquat">Khám Tổng quát / Xét nghiệm</button>
-      <button class="tag-btn" data-disease="nhi">Nhi khoa (Trẻ em)</button>
-      <button class="tag-btn" data-disease="timmach">Tim mạch / Huyết áp</button>
-      <button class="tag-btn" data-disease="sanphukhoa">Sản / Phụ khoa</button>
+      <button type="button" class="tag-btn" data-disease="dada">Khám Dạ dày / Tiêu hóa</button>
+      <button type="button" class="tag-btn" data-disease="tongquat">Khám Tổng quát / Xét nghiệm</button>
+      <button type="button" class="tag-btn" data-disease="nhi">Nhi khoa (Trẻ em)</button>
+      <button type="button" class="tag-btn" data-disease="timmach">Tim mạch / Huyết áp</button>
+      <button type="button" class="tag-btn" data-disease="sanphukhoa">Sản / Phụ khoa</button>
     </div>
   </section>
 
-  <!-- Khu vực hiển thị kết quả -->
+  <!-- Container Nội dung -->
   <main class="container">
-    <div id="resultContainer" class="result-card hidden">
+
+    <!-- KHU VỰC HIỂN THỊ KẾT QUẢ TRA CỨU CHI TIẾT (NGAY TRÊN TRANG HIỆN TẠI) -->
+    <div id="resultContainer" class="result-card hidden" style="margin-bottom: 35px;">
       <div class="disease-header">
-        <span class="dept-badge" id="diseaseDept">Khoa Tiêu Hóa</span>
-        <h2 id="diseaseTitle">Đau Dạ Dày & Nội Soi Tiêu Hóa</h2>
-        <p id="diseaseDesc" class="disease-desc">Hướng dẫn chuẩn bị hành trang và lưu ý trước khi đi khám nội soi tiêu hóa.</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+          <span class="dept-badge" id="diseaseDept">Khoa Tiêu Hóa</span>
+          <a id="viewDetailLink" href="tracuuchitiet.html?id=dada" class="btn-outline" style="font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Mở trang chi tiết riêng
+          </a>
+        </div>
+        <h2 id="diseaseTitle" style="margin-top: 10px; color: #fff; font-size: 22px;">Tên bệnh</h2>
+        <p id="diseaseDesc" class="disease-desc" style="margin-top: 6px;">Mô tả bệnh</p>
+      </div>
+
+      <!-- Khối lưu ý quan trọng trước khi khám -->
+      <div id="quickNotesBox" style="margin: 20px 0; padding: 16px 20px; border-radius: 8px; background: rgba(241, 196, 15, 0.08); border-left: 4px solid #f1c40f;">
+        <h4 style="color: #f1c40f; margin-bottom: 10px; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-triangle-exclamation"></i> Lưu ý quan trọng trước khi đi khám:
+        </h4>
+        <ul id="quickNotesList" style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: #ddd; line-height: 1.5;">
+          <!-- Render từ JS -->
+        </ul>
       </div>
 
       <hr class="divider">
 
       <!-- Danh sách Checklist Hành Trang -->
       <div class="checklist-grid">
-        
         <!-- Nhóm 1: Giấy tờ & Hồ sơ -->
         <div class="check-group">
-          <h3>📄 Giấy tờ & Hồ sơ y tế</h3>
+          <h3><i class="fa-solid fa-id-card"></i> 📄 Giấy tờ & Hồ sơ y tế</h3>
           <ul id="docsList" class="checklist-items">
             <!-- Render JS -->
           </ul>
@@ -71,7 +97,7 @@
 
         <!-- Nhóm 2: Chuẩn bị & Vật dụng -->
         <div class="check-group">
-          <h3>🎒 Chuẩn bị & Vật dụng cá nhân</h3>
+          <h3><i class="fa-solid fa-suitcase"></i> 🎒 Chuẩn bị & Vật dụng cá nhân</h3>
           <ul id="prepList" class="checklist-items">
             <!-- Render JS -->
           </ul>
@@ -79,29 +105,141 @@
 
         <!-- Nhóm 3: Mẫu câu hỏi cho Bác sĩ -->
         <div class="check-group full-width">
-          <h3>💬 Gợi ý câu hỏi nên hỏi Bác sĩ</h3>
+          <h3><i class="fa-solid fa-comments"></i> 💬 Gợi ý câu hỏi nên hỏi Bác sĩ</h3>
           <ul id="questionsList" class="checklist-items">
             <!-- Render JS -->
           </ul>
         </div>
-
       </div>
 
       <!-- Action Bar -->
-      <div class="action-bar">
-        <button id="resetChecklistBtn" class="btn-outline">Đặt lại Checklist</button>
-        <button id="printBtn" class="btn-primary">🖨️ In / Tải danh sách này</button>
+      <div class="action-bar" style="margin-top: 25px; display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap;">
+        <button type="button" id="resetChecklistBtn" class="btn-outline">
+          <i class="fa-solid fa-rotate-left"></i> Đặt lại Checklist
+        </button>
+        <button type="button" id="printBtn" class="btn-primary">
+          <i class="fa-solid fa-print"></i> 🖨️ In / Tải danh sách này
+        </button>
       </div>
     </div>
 
-    <!-- Thông báo khi không tìm thấy -->
-    <div id="notFoundCard" class="not-found hidden">
-      <h3>🔍 Không tìm thấy kết quả phù hợp</h3>
-      <p>Vui lòng thử từ khóa khác hoặc chọn từ danh sách gợi ý phía trên.</p>
+    <!-- Thông báo khi không tìm thấy kết quả -->
+    <div id="notFoundCard" class="not-found hidden" style="margin-bottom: 25px;">
+      <h3><i class="fa-solid fa-circle-exclamation" style="color: #f1c40f;"></i> Không tìm thấy kết quả phù hợp</h3>
+      <p style="margin: 8px 0 15px;">Hệ thống hiện tại hỗ trợ 5 bệnh / chuyên khoa demo. Mời bạn chọn nhanh một trong các gợi ý dưới đây:</p>
+      <div class="not-found-suggestions">
+        <button type="button" class="btn-suggest" data-disease="dada">1. Dạ dày & Tiêu hóa</button>
+        <button type="button" class="btn-suggest" data-disease="tongquat">2. Khám Tổng quát</button>
+        <button type="button" class="btn-suggest" data-disease="nhi">3. Nhi khoa (Trẻ em)</button>
+        <button type="button" class="btn-suggest" data-disease="timmach">4. Tim mạch & Huyết áp</button>
+        <button type="button" class="btn-suggest" data-disease="sanphukhoa">5. Sản / Phụ khoa</button>
+      </div>
     </div>
+
+    <!-- 5 CARD BỆNH DEMO PHỔ BIẾN -->
+    <section class="featured-diseases">
+      <h2 class="featured-heading">
+        <i class="fa-solid fa-hospital-user"></i> 5 Chuyên Khoa & Bệnh Khám Phổ Biến (Demo)
+      </h2>
+
+      <div class="disease-cards-grid">
+
+        <!-- Card 1: Dạ dày / Tiêu hóa -->
+        <div class="disease-card" data-disease="dada" onclick="lookupDisease('dada');">
+          <div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-pills"></i>
+            </div>
+            <div class="card-dept">Khoa Tiêu Hóa - Nội Soi</div>
+            <h3 class="card-title">Bệnh Dạ Dày & Khám Nội Soi</h3>
+            <p class="card-desc">Đau thượng vị, ợ chua, trào ngược, quy định nhịn ăn 6-8 tiếng và lưu ý nội soi gây mê.</p>
+          </div>
+          <div class="card-btn">
+            Xem chi tiết hành trang <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Card 2: Khám Tổng quát -->
+        <div class="disease-card" data-disease="tongquat" onclick="lookupDisease('tongquat');">
+          <div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-stethoscope"></i>
+            </div>
+            <div class="card-dept">Khoa Khám Bệnh Tổng Quát</div>
+            <h3 class="card-title">Khám Sức Khỏe Tổng Quát</h3>
+            <p class="card-desc">Kiểm tra định kỳ, nhịn ăn lấy máu xét nghiệm đường huyết, mỡ máu và lưu ý nhịn tiểu siêu âm.</p>
+          </div>
+          <div class="card-btn">
+            Xem chi tiết hành trang <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Card 3: Nhi khoa (Trẻ em) -->
+        <div class="disease-card" data-disease="nhi" onclick="lookupDisease('nhi');">
+          <div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-baby"></i>
+            </div>
+            <div class="card-dept">Khoa Nhi</div>
+            <h3 class="card-title">Khám Bệnh Cho Trẻ Em</h3>
+            <p class="card-desc">Bé bị sốt cao, ho đờm, tiêu chảy; theo dõi cơn sốt, tã bỉm sữa dự phòng và dấu hiệu cần cấp cứu.</p>
+          </div>
+          <div class="card-btn">
+            Xem chi tiết hành trang <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Card 4: Tim mạch -->
+        <div class="disease-card" data-disease="timmach" onclick="lookupDisease('timmach');">
+          <div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <div class="card-dept">Khoa Tim Mạch</div>
+            <h3 class="card-title">Khám Tim Mạch & Huyết Áp</h3>
+            <p class="card-desc">Đau tức ngực, huyết áp cao, hồi hộp tim đập nhanh; sổ theo dõi huyết áp và lưu ý đo điện tâm đồ.</p>
+          </div>
+          <div class="card-btn">
+            Xem chi tiết hành trang <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <!-- Card 5: Sản / Phụ khoa -->
+        <div class="disease-card" data-disease="sanphukhoa" onclick="lookupDisease('sanphukhoa');">
+          <div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-person-breastfeeding"></i>
+            </div>
+            <div class="card-dept">Khoa Sản - Phụ Khoa</div>
+            <h3 class="card-title">Sản Phụ Khoa & Khám Thai</h3>
+            <p class="card-desc">Khám phụ khoa định kỳ, quản lý thai sản, lưu ý không thụt rửa và chuẩn bị sổ khám thai.</p>
+          </div>
+          <div class="card-btn">
+            Xem chi tiết hành trang <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <script src="tracuu.js"></script>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="logo-icon large">
+        <i class="fa-solid fa-location-crosshairs"></i>
+      </div>
+      <span class="footer-logo-text">CARE ROUTE</span>
+    </div>
+    <div class="footer-right">
+      <p>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+      <p>Tổng đài hỗ trợ: <span class="highlight">1900.6767</span></p>
+      <p>Thư điện tử: caloroute@gmail.com</p>
+    </div>
+  </footer>
+
+  <script src="Tracuu.js"></script>
   <script src="AccountCheck.js"></script>
 </body>
 </html>

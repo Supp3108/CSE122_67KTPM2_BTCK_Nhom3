@@ -77,11 +77,20 @@ body {
 }
 
 .banner-container {
+    background-image: url(../anhhtml/anh112.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     width: 100%;
     max-width: 1000px; /* Chỉnh đúng bằng chiều rộng của khung bài viết bên dưới (1000px) */
+    height: 400px;
 }
 
-.banner-image img {
+.banner-image  {
+    background-image: url(../anhhtml/anh112.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     width: 100%;
     height: auto;
     max-height: 400px; /* Giới hạn chiều cao để ảnh không bị quá to */
@@ -167,6 +176,7 @@ body {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .related-grid {
@@ -424,4 +434,43 @@ body {
 .tag-btn.active {
     background-color: #6b7280; 
     color: #ffffff;            
+}
+
+/* FOOTER */
+.footer {
+  background-color: #37332e;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffd000;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon.large {
+  width: 45px;
+  height: 45px;
+  font-size: 26px;
+}
+
+.footer-logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.footer-right {
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.footer-right .highlight {
+  color: #ff3300;
+  font-weight: bold;
 }

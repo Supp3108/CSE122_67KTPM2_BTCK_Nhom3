@@ -113,7 +113,7 @@ body {
   border-color: #f1c40f;
 }
 
-.search-box button {
+.search-box > button {
   padding: 14px 28px;
   background: #f1c40f;
   color: #111;
@@ -125,8 +125,105 @@ body {
   transition: background 0.2s;
 }
 
-.search-box button:hover {
+.search-box > button:hover {
   background: #d4ac0d;
+}
+
+/* Lịch sử tìm kiếm (dropdown dưới ô tìm kiếm) */
+.search-input-wrap {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+.search-history {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: #242528;
+  border: 1px solid #444;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  overflow: hidden;
+}
+
+.search-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: #888;
+  border-bottom: 1px solid #38393c;
+}
+
+.search-history-header button {
+  background: none;
+  border: none;
+  color: #f1c40f;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.search-history-header button:hover {
+  text-decoration: underline;
+}
+
+.search-history-list {
+  list-style: none;
+}
+
+.search-history-list li {
+  display: flex;
+  align-items: center;
+}
+
+.search-history-list li:hover {
+  background: #2f3034;
+}
+
+.history-run {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  color: #ddd;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.history-run i {
+  color: #777;
+}
+
+.history-run span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-run:hover span {
+  color: #f1c40f;
+}
+
+.history-remove {
+  background: none;
+  border: none;
+  color: #777;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.history-remove:hover {
+  color: #e74c3c;
 }
 
 /* Quick Tags */
@@ -314,4 +411,157 @@ body {
   .search-box {
     flex-direction: column;
   }
+}
+
+
+/* --- DANH SÁCH 5 BỆNH PHỔ BIẾN TRÊN TRANG TRA CỨU --- */
+.featured-diseases {
+  margin: 40px auto 30px;
+}
+
+.featured-heading {
+  font-size: 20px;
+  color: #f1c40f;
+  margin-bottom: 22px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.disease-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.disease-card {
+  background: #242528;
+  border: 1px solid #38393c;
+  border-radius: 12px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.disease-card:hover {
+  transform: translateY(-4px);
+  border-color: #f1c40f;
+  box-shadow: 0 10px 25px rgba(241, 196, 15, 0.15);
+}
+
+.card-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: rgba(241, 196, 15, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #f1c40f;
+  margin-bottom: 15px;
+}
+
+.card-dept {
+  font-size: 11.5px;
+  color: #888;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-size: 17px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.card-desc {
+  font-size: 13.5px;
+  color: #aaa;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.card-btn {
+  color: #f1c40f;
+  font-size: 13.5px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.disease-card:hover .card-btn i {
+  transform: translateX(4px);
+  transition: transform 0.2s;
+}
+
+/* Gợi ý khi không tìm thấy */
+.not-found-suggestions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-suggest {
+  background: #333438;
+  color: #f1c40f;
+  border: 1px solid #444;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-suggest:hover {
+  background: #f1c40f;
+  color: #111;
+}
+
+/* Footer đồng bộ */
+.footer {
+  background-color: #2b2b2b;
+  color: #ccc;
+  padding: 25px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+  border-top: 2px solid #333;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo-text {
+  color: #f1c40f;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer-right p {
+  margin: 4px 0;
+  font-size: 13.5px;
+}
+
+.footer-right .highlight {
+  color: #ff3300;
+  font-weight: bold;
 }

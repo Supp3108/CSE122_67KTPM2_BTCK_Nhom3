@@ -70,4 +70,36 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    // ==========================================
+    // 4. XỬ LÝ TÌM KIẾM TRÊN BANNER TRANG CHỦ
+    // ==========================================
+    const heroSearchBtn = document.getElementById('heroSearchBtn');
+    const heroSearchInput = document.getElementById('heroSearchInput');
+
+    function executeHeroSearch() {
+        if (!heroSearchInput) return;
+        const query = heroSearchInput.value.trim();
+        if (!query) {
+            window.location.href = 'Tracuu.html';
+            return;
+        }
+        window.location.href = `Tracuu.html?q=${encodeURIComponent(query)}`;
+    }
+
+    if (heroSearchBtn) {
+        heroSearchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            executeHeroSearch();
+        });
+    }
+
+    if (heroSearchInput) {
+        heroSearchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                executeHeroSearch();
+            }
+        });
+    }
 });
