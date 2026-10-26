@@ -1,0 +1,1 @@
+* **Link userflow:** [Click để xem video báo cáo](https://www.figma.com/board/jntTtjjuUFtFcQO1xcDv0s/User-Flow?node-id=0-1&t=mrNMCEHG9fkxrGB6-1)
