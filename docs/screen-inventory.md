@@ -16,6 +16,6 @@
 
 ## Danh sách Video minh chứng OBS (ĐK4)
 
-* **Video Giao diện Đăng ký & Tra cứu (Huấn):** [Click để xem video báo cáo](https://youtu.be/0IDOtA2bp7E?si=Yxq3GBf7LuG1bsbq)
-* **Video Trang chủ & Tin tức (Vanh):** [Click để xem video báo cáo](https://youtube.com/link-video-cua-vanh)
-* **Video Hành trang y tế (Duy):** [Click để xem video báo cáo](https://youtube.com/link-video-cua-duy)
+* **Video Giao diện Đăng ký & Tra cứu (Hưng):** [Click để xem video báo cáo](https://youtu.be/0IDOtA2bp7E?si=Yxq3GBf7LuG1bsbq)
+* **Video Trang chủ & Tin tức (Việt Anh):** [Click để xem video báo cáo](https://youtu.be/mwSiV7mRcUo?si=Jg8oJ8Hn1-T3jNIR)
+* **Video Hành trang y tế (Duy):** [Click để xem video báo cáo](https://youtube.com/link-video-cua-duy) 
