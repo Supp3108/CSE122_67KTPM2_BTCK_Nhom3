@@ -346,53 +346,6 @@ body {
     }
 }
 
-/* Khung chứa ô tìm kiếm */
-.search-box {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border: 1px solid #d1d5db;
-    /* Viền xám nhẹ */
-    border-radius: 8px;
-    /* Bo góc mềm mại */
-    padding: 6px 14px;
-    width: 320px;
-    transition: all 0.2s ease-in-out;
-}
-
-/* Hiệu ứng khi người dùng nhấp vào ô nhập (Focus) */
-.search-box:focus-within {
-    border-color: #0284c7;
-    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
-}
-
-/* Ô nhập văn bản */
-.search-box input {
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 13.5px;
-    color: #1f2937;
-    background: transparent;
-}
-
-/* Kiểu chữ gợi ý (Placeholder) */
-.search-box input::placeholder {
-    color: #9ca3af;
-    font-size: 13px;
-}
-
-/* Nút chứa biểu tượng kính lúp */
-.search-box button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin-left: 8px;
-}
 
 .search-box button:hover svg {
     stroke: #0369a1;
