@@ -179,7 +179,7 @@ body {
 }
 
 .section-title {
-  color: #f3a812;
+  color: #ffd000;
   font-size: 32px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -251,7 +251,7 @@ body {
   border: 1px solid #c0c0c0;
   border-radius: 8px;
   padding: 8px;
-  text-align: center;
+  text-align: left;
   font-size: 15px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
